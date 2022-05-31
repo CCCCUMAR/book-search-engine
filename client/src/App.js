@@ -5,7 +5,7 @@ import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 
 import {setContext} from '@apollo/client/link/context';
-import {ApolloProvider, ApolloClient, InMemoryCache} from '@apollo/client';
+import {ApolloProvider, ApolloClient, InMemoryCache, createHttpLink} from '@apollo/client';
 
 const link = createHttpLink ({ uri: '/graphql'})
 
@@ -30,7 +30,7 @@ function App() {
     <Router>
       <>
         <Navbar />
-        <switch>
+        <Routes>
         
           <Route 
             path='/' 
@@ -44,7 +44,7 @@ function App() {
             path='*'
             element={<h1 className='display-2'>Wrong page!</h1>}
           />
-        </switch>
+        </Routes>
       </>
     </Router>
     </ApolloProvider>
